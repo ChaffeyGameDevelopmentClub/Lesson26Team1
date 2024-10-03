@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://brebu24pxk43a"]
+
+[ext_resource type="Texture2D" uid="uid://dbj88wqbgoq6p" path="res://icon.svg" id="1_01ytj"]
+[ext_resource type="Script" path="res://knight_enemy.gd" id="1_6hb8m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x38j"]
+size = Vector2(129, 127)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yb5ca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_01ytj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ecy5p"]
+radius = 281.187
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dh70"]
+size = Vector2(128, 128)
+
+[node name="knight enemy" type="CharacterBody2D"]
+script = ExtResource("1_6hb8m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_0x38j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yb5ca")
+
+[node name="player detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player detect"]
+shape = SubResource("CircleShape2D_ecy5p")
+
+[node name="player death" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player death"]
+shape = SubResource("RectangleShape2D_2dh70")
+
+[connection signal="body_entered" from="player detect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="player detect" to="." method="_on_player_detect_body_exited"]
+[connection signal="body_entered" from="player death" to="." method="_on_player_death_body_entered"]

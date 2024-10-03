@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgpxa7vlrjb7n"]
+
+[ext_resource type="PackedScene" uid="uid://cvr1da5xxyeyr" path="res://player_test.tscn" id="2_j3jv1"]
+[ext_resource type="PackedScene" uid="uid://brebu24pxk43a" path="res://knight_enemy.tscn" id="3_uohwr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1dr5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8urn"]
+size = Vector2(1156, 242.5)
+
+[node name="world" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_1dr5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 122.75)
+shape = SubResource("RectangleShape2D_k8urn")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -578.0
+offset_top = 1.0
+offset_right = 594.0
+offset_bottom = 291.0
+
+[node name="player test" type="Node2D" parent="."]
+
+[node name="player test" parent="player test" instance=ExtResource("2_j3jv1")]
+position = Vector2(162, -116)
+
+[node name="enemies" type="Node2D" parent="player test"]
+
+[node name="knight enemy" parent="player test/enemies" instance=ExtResource("3_uohwr")]
+position = Vector2(-411, -76)

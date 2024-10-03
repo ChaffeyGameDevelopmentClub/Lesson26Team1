@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://prjcb7qev3oh"]
+
+[node name="villager enemy" type="CharacterBody2D"]
