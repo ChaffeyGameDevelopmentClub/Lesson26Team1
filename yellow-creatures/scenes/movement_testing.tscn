@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://duy1tog6fpwm"]
+[gd_scene load_steps=9 format=4 uid="uid://duy1tog6fpwm"]
 
 [ext_resource type="PackedScene" uid="uid://c7l3r52mmsp43" path="res://scenes/player.tscn" id="2_k3l7u"]
 [ext_resource type="Texture2D" uid="uid://ol2ymce6gpud" path="res://GodotAssets/Basic Tilemap.png" id="2_vt2ld"]
@@ -219,8 +219,6 @@ texture = ExtResource("2_vt2ld")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_0tgyb")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mqjh5"]
-
 [node name="Movement Testing" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -230,6 +228,7 @@ tile_map_data = PackedByteArray("AAAAAAkAAAAAAAkAAAABAAkAAAABAAkAAAACAAkAAAACAAk
 tile_set = SubResource("TileSet_4hmn0")
 
 [node name="Layer1" type="TileMapLayer" parent="."]
+visible = false
 z_index = 2
 texture_filter = 1
 use_parent_material = true
@@ -238,14 +237,12 @@ tile_map_data = PackedByteArray("AAAAAAgAAQACAAIAAAABAAgAAQADAAgAAAACAAgAAQACAAg
 tile_set = SubResource("TileSet_ciw40")
 
 [node name="Player" parent="." instance=ExtResource("2_k3l7u")]
-position = Vector2(602, 416)
+position = Vector2(210, -10)
 
 [node name="enemy ai" parent="." instance=ExtResource("3_whxfm")]
+visible = false
 position = Vector2(1393, 501)
 speed = 300
 
 [node name="Killzone" parent="." instance=ExtResource("4_s4q6y")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(52, 689)
-shape = SubResource("WorldBoundaryShape2D_mqjh5")
+position = Vector2(1225, 377)
