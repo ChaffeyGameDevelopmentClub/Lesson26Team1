@@ -126,6 +126,14 @@ height = 162.0
 collision_layer = 2
 script = ExtResource("1_u0e8o")
 
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -88.0
+offset_top = -121.0
+offset_right = 74.0
+offset_bottom = -93.0
+value = 100.0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(5, 5)
@@ -152,3 +160,8 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = -0.52
 drag_bottom_margin = 0.03
+
+[node name="DamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
