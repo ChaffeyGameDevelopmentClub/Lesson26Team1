@@ -1,5 +1,4 @@
 extends Area2D
-@export var DamageDealt : int = 5
 
 @onready var timer = $Timer
 

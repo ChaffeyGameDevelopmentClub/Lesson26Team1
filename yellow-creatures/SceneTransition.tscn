@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwyie233pgrkw"]
+
+[ext_resource type="Script" path="res://scene_transition.gd" id="1_vbeht"]
+[ext_resource type="PackedScene" uid="uid://ccx34wp25s116" path="res://nextGraphic.tscn" id="2_dkkn2"]
+[ext_resource type="Script" path="res://transition_area.gd" id="2_q2wyd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttmxj"]
+normal = Vector2(-1, 0)
+
+[node name="SceneTransition" type="Node2D"]
+script = ExtResource("1_vbeht")
+nextGraphic = ExtResource("2_dkkn2")
+
+[node name="TransitionAreaVisual" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -324.0
+offset_right = 20.0
+offset_bottom = 324.0
+
+[node name="TransitionArea" type="Area2D" parent="."]
+script = ExtResource("2_q2wyd")
+
+[node name="TransitionShape" type="CollisionShape2D" parent="TransitionArea"]
+shape = SubResource("WorldBoundaryShape2D_ttmxj")
+
+[connection signal="area_entered" from="TransitionArea" to="." method="_on_transition_area_area_entered"]
+[connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_area_body_entered"]
+[connection signal="body_entered" from="TransitionArea" to="TransitionArea" method="_on_body_entered"]

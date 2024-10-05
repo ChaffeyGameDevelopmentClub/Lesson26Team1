@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://gh75okavqrnq"]
+
+[ext_resource type="Script" path="res://simple_transition.gd" id="1_eayry"]
+
+[sub_resource type="Animation" id="Animation_lg7lk"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2ejwg"]
+resource_name = "dissolve"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v5mbn"]
+resource_name = "dissolve_backwards"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o3hb0"]
+_data = {
+"RESET": SubResource("Animation_lg7lk"),
+"dissolve": SubResource("Animation_2ejwg"),
+"dissolve_backwards": SubResource("Animation_v5mbn")
+}
+
+[node name="SimpleTransition" type="CanvasLayer"]
+script = ExtResource("1_eayry")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../dissolve_rect")
+libraries = {
+"": SubResource("AnimationLibrary_o3hb0")
+}
+
+[node name="dissolve_rect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

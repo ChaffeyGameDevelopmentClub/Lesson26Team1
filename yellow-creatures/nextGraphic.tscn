@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccx34wp25s116"]
+
+[ext_resource type="Texture2D" uid="uid://ol2ymce6gpud" path="res://GodotAssets/Basic Tilemap.png" id="1_p80bm"]
+
+[node name="NextGraphic" type="Sprite2D"]
+texture = ExtResource("1_p80bm")

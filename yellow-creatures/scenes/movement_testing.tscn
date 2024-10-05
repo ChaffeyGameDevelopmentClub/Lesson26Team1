@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://duy1tog6fpwm"]
+[gd_scene load_steps=11 format=4 uid="uid://duy1tog6fpwm"]
 
 [ext_resource type="PackedScene" uid="uid://c7l3r52mmsp43" path="res://scenes/player.tscn" id="2_k3l7u"]
 [ext_resource type="Texture2D" uid="uid://ol2ymce6gpud" path="res://GodotAssets/Basic Tilemap.png" id="2_vt2ld"]
 [ext_resource type="PackedScene" uid="uid://dbgnrmlvesmdc" path="res://Enemy/enemy_ai.tscn" id="3_whxfm"]
 [ext_resource type="PackedScene" uid="uid://bfy4khcpushyt" path="res://scenes/killzone.tscn" id="4_s4q6y"]
+[ext_resource type="PackedScene" uid="uid://cwyie233pgrkw" path="res://SceneTransition.tscn" id="5_vfl35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6abt"]
 texture = ExtResource("2_vt2ld")
@@ -249,3 +250,7 @@ speed = 300
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(52, 689)
 shape = SubResource("WorldBoundaryShape2D_mqjh5")
+
+[node name="SceneTransition" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_vfl35")]
+position = Vector2(639, -127)
+Player = NodePath("../Player")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv3em2vio4rjc"]
+
+[ext_resource type="PackedScene" uid="uid://gh75okavqrnq" path="res://simple_transition.tscn" id="1_0u3sl"]
+[ext_resource type="PackedScene" uid="uid://c7l3r52mmsp43" path="res://scenes/player.tscn" id="1_lx1b6"]
+[ext_resource type="PackedScene" uid="uid://cwyie233pgrkw" path="res://SceneTransition.tscn" id="2_bsj7h"]
+[ext_resource type="PackedScene" uid="uid://bfy4khcpushyt" path="res://scenes/killzone.tscn" id="3_hfaao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22wv7"]
+size = Vector2(818, 20)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m5vu0"]
+normal = Vector2(1, 0)
+
+[node name="Scenetransitiontest" type="Node2D"]
+
+[node name="SimpleTransition" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_0u3sl")]
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("1_lx1b6")]
+position = Vector2(178, 395)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(409, 610)
+shape = SubResource("RectangleShape2D_22wv7")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_top = 600.0
+offset_right = 818.0
+offset_bottom = 620.0
+
+[node name="SceneTransition" parent="." instance=ExtResource("2_bsj7h")]
+position = Vector2(864, 300)
+
+[node name="Killzone" parent="." instance=ExtResource("3_hfaao")]
+position = Vector2(-86, 640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_m5vu0")
