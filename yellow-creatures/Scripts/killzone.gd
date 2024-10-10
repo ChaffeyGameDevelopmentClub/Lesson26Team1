@@ -1,10 +1,10 @@
 extends Area2D
 
-
+var gettingflung = 100
 @onready var timer = $Timer
 var health = 5
 func _process(delta: float) -> void:
-	
+	pass
 func _on_body_entered(body: Node2D) -> void:
 	print_debug(body.name)
 	if body.name == "Player":
@@ -15,11 +15,12 @@ func _on_body_entered(body: Node2D) -> void:
 			timer.start()
 		var playerpos = body.position
 		if playerpos.x > self.position.x:
-			body.position.x += lerp(body.position.x, body.position.x + 100, 0.5)
-			body.position.y -= 100
-		if playerpos.x < self.position.x:
-			body.position.x -= 100
-			body.position.y -= 100
+			#for n in range(10,0,-1):
+				#body.position.x += 10
+				#body.position.y -= 10
+		#if playerpos.y < self.position.y:
+			#body.position.x -= lerp(body.position.x, body.position.x - 10, 0.5)
+			#body.position.y -= lerp(body.position.y, body.position.y - 10, 0.5)
 
 		
 func _on_timer_timeout() -> void:
