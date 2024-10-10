@@ -26,7 +26,7 @@ offset_bottom = 291.0
 [node name="player test" type="Node2D" parent="."]
 
 [node name="player test" parent="player test" instance=ExtResource("2_j3jv1")]
-position = Vector2(162, -116)
+position = Vector2(166, -129)
 
 [node name="enemies" type="Node2D" parent="player test"]
 
