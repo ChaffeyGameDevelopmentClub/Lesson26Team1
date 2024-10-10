@@ -13,7 +13,7 @@ func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/movement_testing.tscn") # To gay baby jail
 
 func _on_options_pressed() -> void:
-	pass # Wah.
+	get_tree().change_scene_to_file("res://scenes/Menus/Settings.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit() # Simple Quit Function

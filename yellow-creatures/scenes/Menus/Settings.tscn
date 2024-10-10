@@ -1,4 +1,30 @@
-[gd_scene format=3 uid="uid://b7raxtd4h7rsa"]
+[gd_scene load_steps=6 format=3 uid="uid://b7raxtd4h7rsa"]
+
+[ext_resource type="Script" path="res://scenes/Menus/settings.gd" id="1_qudam"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_odni0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnavs"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sdg"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohyo0"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(1, 1, 1, 0.980392)
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -7,3 +33,59 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qudam")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sliders" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Sliders"]
+layout_mode = 2
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="MarginContainer/Sliders"]
+layout_mode = 2
+
+[node name="Mute Button" type="CheckBox" parent="MarginContainer/Sliders"]
+layout_mode = 2
+text = "Mute"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -72.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="BackButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 1, 1)
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_odni0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wnavs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u5sdg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ohyo0")
+text = "Back"
+
+[connection signal="value_changed" from="MarginContainer/Sliders/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="toggled" from="MarginContainer/Sliders/Mute Button" to="." method="_on_mute_button_toggled"]
+[connection signal="pressed" from="Buttons/BackButton" to="." method="_on_back_button_pressed"]

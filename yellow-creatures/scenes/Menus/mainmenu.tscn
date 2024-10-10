@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://5h17sy6f3tq1"]
 
-[ext_resource type="Script" path="res://Scripts/mainmenu.gd" id="1_fwq1l"]
-[ext_resource type="Texture2D" uid="uid://d4an8m32k8248" path="res://GodotAssets/icon.svg" id="1_imglc"]
+[ext_resource type="Script" path="res://Scripts/mainmenu.gd" id="1_tf4w4"]
+[ext_resource type="Texture2D" uid="uid://d4an8m32k8248" path="res://GodotAssets/icon.svg" id="2_b331e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_520li"]
-texture = ExtResource("1_imglc")
+texture = ExtResource("2_b331e")
 modulate_color = Color(0.481789, 0.48179, 0.481789, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2k78"]
@@ -42,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fwq1l")
+script = ExtResource("1_tf4w4")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
